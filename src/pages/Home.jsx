@@ -63,54 +63,71 @@ export default function Home() {
         </div>
       </Card>
 
+      
       {/* Contact Form Section */}
-      <Card>
-        <h2 className="text-3xl font-bold text-purple-700 mb-6 text-center">
-          Contact Us
-        </h2>
+<Card>
+  <h2 className="text-3xl font-bold text-purple-700 mb-10 text-center">
+    Contact Us
+  </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto">
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={(e) =>
-              setForm({ ...form, name: e.target.value })
-            }
-            className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"
-            required
-          />
+  <div className="grid md:grid-cols-2 gap-10 items-center">
 
-          <input
-            type="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={(e) =>
-              setForm({ ...form, email: e.target.value })
-            }
-            className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"
-            required
-          />
+    {/* Left Side Image */}
+    <div className="flex justify-center md:order-2 order-1">
+      <img
+        src="https://image.freepik.com/free-vector/contact-us-concept-illustration_278696-3.jpg"
+        alt="Contact Illustration"
+        className="rounded-2xl shadow-xl w-full max-w-md"
+      />
+    </div>
 
-          <textarea
-            placeholder="Your Message"
-            value={form.message}
-            onChange={(e) =>
-              setForm({ ...form, message: e.target.value })
-            }
-            rows="4"
-            className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"
-            required
-          />
+    {/* Right Side Form */}
+    <form onSubmit={handleSubmit} className="space-y-4 md:order-1 order-2">
 
-          <button
-            type="submit"
-            className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition"
-          >
-            Send Message
-          </button>
-        </form>
-      </Card>
+      <input
+        type="text"
+        placeholder="Your Name"
+        value={form.name}
+        onChange={(e) =>
+          setForm({ ...form, name: e.target.value })
+        }
+        className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"
+        required
+      />
+
+      <input
+        type="email"
+        placeholder="Your Email"
+        value={form.email}
+        onChange={(e) =>
+          setForm({ ...form, email: e.target.value })
+        }
+        className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"
+        required
+      />
+
+      <textarea
+        placeholder="Your Message"
+        value={form.message}
+        onChange={(e) =>
+          setForm({ ...form, message: e.target.value })
+        }
+        rows="4"
+        className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none"
+        required
+      />
+
+      <button
+        type="submit"
+        className="w-full bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition"
+      >
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</Card>
+
 
     </div>
   );
