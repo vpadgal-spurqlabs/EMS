@@ -68,7 +68,7 @@ export default function Sidebar() {
       <nav className="space-y-4 flex-1">
 
         <Link
-          to="/home"
+          to="/"
           className="block px-4 py-2 rounded-lg text-gray-800 hover:bg-white hover:text-purple-900 transition"
         >
           Home
