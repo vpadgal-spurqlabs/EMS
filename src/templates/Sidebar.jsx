@@ -67,40 +67,12 @@ export default function Sidebar() {
 
       <nav className="space-y-4 flex-1">
 
-        {/* Home with Dropdown */}
-        <div>
-          <button
-            onClick={() => setOpenHome(!openHome)}
-            className="w-full text-left px-4 py-2 rounded-lg text-gray-800 hover:bg-white hover:text-purple-900 transition"
-          >
-            Home
-          </button>
-
-          {openHome && (
-            <div className="ml-6 mt-2 space-y-2 text-sm">
-              <Link
-                to="/"
-                className="block text-gray-700 hover:text-purple-900"
-              >
-                Main Home
-              </Link>
-
-              <Link
-                to="/gallery"
-                className="block text-gray-700 hover:text-purple-900"
-              >
-                Our Gallery
-              </Link>
-
-              <Link
-                to="/contact"
-                className="block text-gray-700 hover:text-purple-900"
-              >
-                Contact Us
-              </Link>
-            </div>
-          )}
-        </div>
+        <Link
+          to="/home"
+          className="block px-4 py-2 rounded-lg text-gray-800 hover:bg-white hover:text-purple-900 transition"
+        >
+          Home
+        </Link>
 
         {/* Other Links */}
         <Link
