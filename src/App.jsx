@@ -6,6 +6,7 @@ import About from "./pages/About";
 import AddProject from "./pages/AddProject";
 import Projects from "./pages/Projects";
 import Submit from "./pages/Submit";
+import Settings from "./pages/Settings";
 import Notification from "./components/Notification";
 
 function App() {
@@ -20,7 +21,9 @@ function App() {
           <Route path="/projects" element={<Projects/>}/>
           <Route path="/add-project" element={<AddProject />} />
           <Route path="/submit" element={<Submit/>} />
-       
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/gallery" element={<Projects />} />
+          <Route path="/contact" element={<About />} />
         </Routes>
       </Layout>
     </BrowserRouter>
