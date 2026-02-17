@@ -6,7 +6,8 @@ export default defineConfig(({ command }) => {
   const isProduction = command === 'build'
   
   return {
-    base: isProduction ? '/EMS/' : '/',
+    // base: isProduction ? '/EMS/' : '/',
     plugins: [react()],
+    base: "/EMS/",
   }
 })
