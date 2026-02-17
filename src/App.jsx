@@ -3,7 +3,6 @@ import { Suspense, lazy } from "react";
 import Layout from "./templates/Layout";
 import Notification from "./components/Notification";
 
-// 🔥 Lazy loaded pages (PascalCase only)
 const Home = lazy(() => import("./pages/Home"));
 const Employees = lazy(() => import("./pages/Employees"));
 const About = lazy(() => import("./pages/About"));
