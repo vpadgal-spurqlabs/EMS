@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchEmployees } from "./features/employee/employeeSlice";
 import Layout from "./templates/Layout";
 import Notification from "./components/Notification";
 
@@ -11,7 +13,23 @@ const Projects = lazy(() => import("./pages/Projects"));
 const Submit = lazy(() => import("./pages/Submit"));
 const Settings = lazy(() => import("./pages/Settings"));
 
+// const dispatch = useDispatch();
+
+// useEffect(() => {
+//   dispatch(fetchEmployees());
+// }, [dispatch]);
+
+
 function App() {
+
+  const dispatch = useDispatch();
+  const { list, loading, error } = useSelector((state) => state.employees);
+
+  useEffect(() => {
+    dispatch(fetchEmployees());
+  }, [dispatch]);
+
+
   return (
     <BrowserRouter>
       <Layout>
