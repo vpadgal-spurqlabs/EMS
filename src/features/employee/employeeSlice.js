@@ -48,9 +48,11 @@ const dummyData = [
 export const fetchEmployees = createAsyncThunk(
   "employees/fetchEmployees",
   async () => {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(dummyData), 1000);
-    });
+    // return new Promise((resolve) => {
+      // setTimeout(() => resolve(dummyData), 1000);
+    const response = await fetch('https://fakestoreapi.com/users')
+     return response.json()
+    // });
   }
 );
 
@@ -62,18 +64,18 @@ const employeeSlice = createSlice({
     error: null,
     search: "",
   },
-  reducers: {
-    addEmployee: (state, action) => {
-      state.list.push({ id: Date.now(), ...action.payload });
-    },
+  // reducers: {
+  //   addEmployee: (state, action) => {
+  //     state.list.push({ id: Date.now(), ...action.payload });
+  //   },
 
-    deleteEmployee: (state, action) => {
-      state.list = state.list.filter((emp) => emp.id !== action.payload);
-    },
-    setSearch: (state, action) => {
-      state.search = action.payload;
-    },
-  },
+  //   deleteEmployee: (state, action) => {
+  //     state.list = state.list.filter((emp) => emp.id !== action.payload);
+  //   },
+  //   setSearch: (state, action) => {
+  //     state.search = action.payload;
+  //   },
+  // },
   extraReducers: (builder) => {
     builder
       .addCase(fetchEmployees.pending, (state) => {
@@ -85,11 +87,13 @@ const employeeSlice = createSlice({
       })
       .addCase(fetchEmployees.rejected, (state) => {
         state.loading = false;
-        state.error = "Failed to load employees";
+        // state.error = "Failed to load employees";
+        state.error = action.error.message
       });
   },
 });
 
 export const { addEmployee, deleteEmployee, setSearch } = employeeSlice.actions;
 
+// export const employeeReducer =employeeSlice.reducer;
 export default employeeSlice.reducer;
